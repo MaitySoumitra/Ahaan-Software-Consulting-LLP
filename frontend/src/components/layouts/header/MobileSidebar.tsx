@@ -22,9 +22,6 @@ interface MobileMenuProps {
   menus: MenuItem[];
 }
 
-const iconClass =
-  "inline-flex bg-gradient-to-br from-[#F8D56B] via-[#D49A28] to-[#9E6400] bg-clip-text text-transparent transition-all duration-300 hover:scale-110";
-
 export const MobileSidebar = ({
   menuOpen,
   setMenuOpen,
