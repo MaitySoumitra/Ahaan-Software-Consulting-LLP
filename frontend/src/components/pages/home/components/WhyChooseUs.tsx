@@ -63,20 +63,19 @@ export const WhyChooseUs: React.FC = () => {
   return (
     <section className="w-full bg-[#0A0A0A] text-[#F5F1E8] py-20 lg:py-28 overflow-hidden font-['Outfit']">
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-14">
-        
-      {/* TOP HEADER */}
-<div className="max-w-6xl mx-auto text-center pb-4">
-  <h2 className="text-3xl sm:text-4xl font-extrabold text-[#fff] leading-tight">
-    Engineered for 
-    <span className=""> Performance</span> & Trust.
-  </h2>
+        {/* TOP HEADER */}
+        <div className="max-w-6xl mx-auto text-center pb-4">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#fff] leading-tight">
+            Engineered for
+            <span className=""> Performance</span> & Trust.
+          </h2>
 
-  <p className="mt-8 mx-auto text-[#8A8A8A] text-base lg:text-lg leading-8">
-    We aren't just another service provider. We act as a high-velocity
-    extension of your core engine, combining modern workflows with precise
-    tactical execution.
-  </p>
-</div>
+          <p className="mt-8 mx-auto text-[#8A8A8A] text-base lg:text-lg leading-8">
+            We aren't just another service provider. We act as a high-velocity
+            extension of your core engine, combining modern workflows with
+            precise tactical execution.
+          </p>
+        </div>
 
         {/* PERSISTENT TAB STEP INDICATOR BAR */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-8">
@@ -87,12 +86,20 @@ export const WhyChooseUs: React.FC = () => {
                 key={item.id}
                 onClick={() => setActiveId(item.id)}
                 className="group flex flex-col text-left pt-4 border-t-2 transition-all duration-500 outline-none"
-                style={{ borderColor: isSelected ? "#CD912A" : "rgba(255,255,255,0.07)" }}
+                style={{
+                  borderColor: isSelected
+                    ? "#CD912A"
+                    : "rgba(255,255,255,0.07)",
+                }}
               >
-                <span className={`text-xs font-mono tracking-widest transition-colors duration-300 ${isSelected ? "text-[#CD912A]" : "text-white/30 group-hover:text-white/60"}`}>
+                <span
+                  className={`text-xs font-mono tracking-widest transition-colors duration-300 ${isSelected ? "text-[#CD912A]" : "text-white/30 group-hover:text-white/60"}`}
+                >
                   {item.index}
                 </span>
-                <span className={`text-base font-medium mt-1 transition-colors duration-300 ${isSelected ? "text-white" : "text-white/40 group-hover:text-white/80"}`}>
+                <span
+                  className={`text-base font-medium mt-1 transition-colors duration-300 ${isSelected ? "text-white" : "text-white/40 group-hover:text-white/80"}`}
+                >
                   {item.title}
                 </span>
               </button>
@@ -102,19 +109,18 @@ export const WhyChooseUs: React.FC = () => {
 
         {/* CORE SHOWCASE CANVAS */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mt-6 items-center">
-          
           {/* LEFT CONTENT COLUMN: DYNAMIC SPOTLIGHT */}
           <div className="lg:col-span-6 space-y-8 min-h-[340px] flex flex-col justify-center">
-            <div key={activeReason.id} className="animate-[slideUp_0.6s_cubic-bezier(0.16,_1,_0.3,_1)] space-y-6">
+            <div
+              key={activeReason.id}
+              className="animate-[slideUp_0.6s_cubic-bezier(0.16,_1,_0.3,_1)] space-y-6"
+            >
               <div className="inline-flex p-3 rounded-xl bg-white/[0.03] border border-white/10 text-[#CD912A]">
                 <activeReason.Icon size={32} weight="duotone" />
               </div>
-              
+
               <div>
-                <span className="text-xs uppercase tracking-widest font-mono text-[#CD912A]/80 block mb-2">
-                  Key Pillar // {activeReason.index}
-                </span>
-                <h3 className="font-['Fraunces'] text-3xl md:text-4xl font-semibold tracking-tight text-white">
+                <h3 className="text-3xl sm:text-4xl font-extrabold text-[#fff] leading-tight">
                   {activeReason.tagline}
                 </h3>
               </div>
@@ -124,13 +130,16 @@ export const WhyChooseUs: React.FC = () => {
               </p>
 
               <div className="pt-4">
-                <a 
-                  href="#contact" 
+                {/* <a
+                  href="#contact"
                   className="inline-flex items-center gap-2 text-sm font-medium text-[#CD912A] hover:text-[#E5A93B] group transition-colors duration-300"
                 >
                   Explore partnership model
-                  <ArrowRight size={16} className="transform group-hover:translate-x-1.5 transition-transform duration-300" />
-                </a>
+                  <ArrowRight
+                    size={16}
+                    className="transform group-hover:translate-x-1.5 transition-transform duration-300"
+                  />
+                </a> */}
               </div>
             </div>
           </div>
@@ -143,7 +152,7 @@ export const WhyChooseUs: React.FC = () => {
               alt="Strategic execution environment"
               className="h-full w-full object-cover grayscale opacity-40 mix-blend-luminosity scale-100 group-hover/frame:scale-105 transition-transform duration-700 ease-out"
             />
-            
+
             {/* Dynamic Layout Tint Layer */}
             <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-transparent to-[#0A0A0A]/20" />
             <div className="absolute inset-0 bg-[#CD912A]/5 mix-blend-overlay" />
@@ -154,14 +163,13 @@ export const WhyChooseUs: React.FC = () => {
             </div>
 
             {/* Giant Architectural Letter Background Stamp */}
-            <div 
-              key={`letter-${activeReason.id}`} 
+            <div
+              key={`letter-${activeReason.id}`}
               className="absolute -bottom-16 -left-8 font-['Fraunces'] font-bold text-[280px] leading-none text-white/[0.02] tracking-tighter pointer-events-none select-none animate-[scalePop_0.7s_cubic-bezier(0.16,_1,_0.3,_1)]"
             >
               {activeReason.title.charAt(0)}
             </div>
           </div>
-
         </div>
       </div>
 

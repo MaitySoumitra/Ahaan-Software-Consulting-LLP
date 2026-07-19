@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Play } from "@phosphor-icons/react";
-import webapp from "../../../../assets/wep-app.png";
 import TechOrbit from "./TechOrbit";
 
 const SERVICES_DATA = [
@@ -11,13 +10,7 @@ const SERVICES_DATA = [
     subheading:
       "We build fast, secure, scalable, and fully customized web applications tailored to your business goals.",
     highlightColorClass: "text-sky-600",
-    illustration: (
-      <img
-        src={webapp}
-        alt="Web App Development"
-        className="w-full h-full object-contain"
-      />
-    ),
+  
   },
   {
     id: "web-design",
@@ -26,13 +19,7 @@ const SERVICES_DATA = [
     subheading:
       "Modern, responsive, and user-focused website designs that deliver exceptional user experiences across all devices.",
     highlightColorClass: "text-indigo-600",
-    illustration: (
-      <img
-        src={webapp}
-        alt="Web App Development"
-        className="w-full h-full object-contain"
-      />
-    ),
+  
   },
   {
     id: "ecommerce",
@@ -41,13 +28,7 @@ const SERVICES_DATA = [
     subheading:
       "End-to-end eCommerce solutions with secure payments, inventory management, and conversion-focused online stores.",
     highlightColorClass: "text-blue-600",
-    illustration: (
-      <img
-        src={webapp}
-        alt="Web App Development"
-        className="w-full h-full object-contain"
-      />
-    ),
+  
   },
   {
     id: "shopify",
@@ -56,13 +37,7 @@ const SERVICES_DATA = [
     subheading:
       "High-converting Shopify stores with custom design, seamless integrations, and optimized shopping experiences.",
     highlightColorClass: "text-emerald-600",
-    illustration: (
-      <img
-        src={webapp}
-        alt="Web App Development"
-        className="w-full h-full object-contain"
-      />
-    ),
+  
   },
   {
     id: "wordpress",
@@ -71,13 +46,7 @@ const SERVICES_DATA = [
     subheading:
       "Powerful WordPress websites with custom themes, plugins, optimized performance, and easy content management.",
     highlightColorClass: "text-amber-600",
-    illustration: (
-      <img
-        src={webapp}
-        alt="Web App Development"
-        className="w-full h-full object-contain"
-      />
-    ),
+  
   },
 ];
 
