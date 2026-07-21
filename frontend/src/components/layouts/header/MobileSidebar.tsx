@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import {
   PhoneOutgoingIcon,
@@ -9,47 +10,40 @@ import {
   BehanceLogoIcon,
   DribbbleLogoIcon,
   GithubLogoIcon,
+  CaretDownIcon,
 } from "@phosphor-icons/react";
 
-interface MenuItem {
-  name: string;
-  path: string;
-}
+import { menuData } from "./menuData";
 
 interface MobileMenuProps {
   menuOpen: boolean;
   setMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  menus: MenuItem[];
 }
 
 export const MobileSidebar = ({
   menuOpen,
   setMenuOpen,
-  menus,
 }: MobileMenuProps) => {
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
+
   return (
     <>
       {/* Overlay */}
-
       <div
         onClick={() => setMenuOpen(false)}
         className={`fixed inset-0 z-40 bg-black/60 transition-all duration-300 ${
-          menuOpen
-            ? "visible opacity-100"
-            : "invisible opacity-0"
+          menuOpen ? "visible opacity-100" : "invisible opacity-0"
         }`}
       />
 
       {/* Drawer */}
-
       <div
         className={`fixed top-0 right-0 z-50 h-screen w-[330px] max-w-[90%] bg-[#161616] shadow-2xl transition-transform duration-500 ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         {/* Header */}
-
-        <div className="flex items-center justify-between border-b border-white/3 px-5 py-5">
+        <div className="flex items-center justify-between border-b border-white/5 px-5 py-5">
           <img
             src="https://ahaanmedia.com/ahaanwebsite/layouts/asc.webp"
             alt="logo"
@@ -58,40 +52,92 @@ export const MobileSidebar = ({
 
           <button
             onClick={() => setMenuOpen(false)}
-            className="text-white hover:text-[#CE8827] transition"
+            className="text-white transition hover:text-[#CE8827]"
           >
             <X size={30} weight="bold" />
           </button>
         </div>
 
         {/* Content */}
-
         <div className="h-[calc(100vh-82px)] overflow-y-auto">
 
           {/* Menu */}
-
           <ul>
-            {menus.map((menu) => (
+
+            {menuData.map((menu) => (
+
               <li key={menu.path}>
-                <NavLink
-                  to={menu.path}
-                  onClick={() => setMenuOpen(false)}
-                  className={({ isActive }) =>
-                    `block border-b border-white/2 px-6 py-3 text-[15px] transition-all uppercase duration-300 ${
-                      isActive
-                        ? "bg-[#f6b338] text-black"
-                        : "text-white hover:bg-[#222]"
-                    }`
-                  }
-                >
-                  {menu.name}
-                </NavLink>
+
+                {menu.submenu ? (
+
+                  <>
+                    <button
+                      onClick={() =>
+                        setOpenMenu(
+                          openMenu === menu.name ? null : menu.name
+                        )
+                      }
+                      className="flex w-full items-center justify-between border-b border-white/5 px-6 py-3 text-[15px] uppercase text-white transition hover:bg-[#222]"
+                    >
+                      {menu.name}
+
+                      <CaretDownIcon
+                        size={18}
+                        className={`transition duration-300 ${
+                          openMenu === menu.name
+                            ? "rotate-180"
+                            : ""
+                        }`}
+                      />
+                    </button>
+
+                    <div
+                      className={`overflow-hidden transition-all duration-300 ${
+                        openMenu === menu.name
+                          ? "max-h-[500px]"
+                          : "max-h-0"
+                      }`}
+                    >
+                      {menu.submenu.map((item) => (
+
+                        <NavLink
+                          key={item.path}
+                          to={item.path}
+                          onClick={() => setMenuOpen(false)}
+                          className="block border-b border-white/5 bg-[#1e1e1e] px-10 py-3 text-sm text-gray-300 transition hover:bg-[#CE8827] hover:text-white"
+                        >
+                          {item.name}
+                        </NavLink>
+
+                      ))}
+                    </div>
+                  </>
+
+                ) : (
+
+                  <NavLink
+                    to={menu.path}
+                    onClick={() => setMenuOpen(false)}
+                    className={({ isActive }) =>
+                      `block border-b border-white/5 px-6 py-3 text-[15px] uppercase transition ${
+                        isActive
+                          ? "bg-[#CE8827] text-black"
+                          : "text-white hover:bg-[#222]"
+                      }`
+                    }
+                  >
+                    {menu.name}
+                  </NavLink>
+
+                )}
+
               </li>
+
             ))}
+
           </ul>
 
           {/* Contact */}
-
           <div className="space-y-5 px-6 py-6">
 
             <a
@@ -110,30 +156,29 @@ export const MobileSidebar = ({
               <span>support@ahaansoftware.com</span>
             </a>
 
-
             <div className="flex gap-6 pt-3">
 
-              <a href="#" className="text-[#f6b338] hover:text-[#f6b338] transition">
+              <a href="#" className="text-[#f6b338]">
                 <FacebookLogo size={24} weight="fill" />
               </a>
 
-              <a href="#" className="text-[#f6b338] hover:text-[#f6b338] transition">
+              <a href="#" className="text-[#f6b338]">
                 <InstagramLogo size={24} weight="fill" />
               </a>
 
-              <a href="#" className="text-[#f6b338] hover:text-[#f6b338] transition">
+              <a href="#" className="text-[#f6b338]">
                 <LinkedinLogo size={24} weight="fill" />
               </a>
 
-              <a href ="#" className="text-[#f6b338] hover:text-[#f6b338] transition">
+              <a href="#" className="text-[#f6b338]">
                 <BehanceLogoIcon size={24} weight="fill" />
               </a>
 
-                <a href ="#" className="text-[#f6b338] hover:text-[#f6b338] transition">
+              <a href="#" className="text-[#f6b338]">
                 <DribbbleLogoIcon size={24} weight="fill" />
               </a>
 
-                <a href ="#" className="text-[#f6b338] hover:text-[#f6b338] transition">
+              <a href="#" className="text-[#f6b338]">
                 <GithubLogoIcon size={24} weight="fill" />
               </a>
 
