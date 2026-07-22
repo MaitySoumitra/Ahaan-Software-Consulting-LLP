@@ -1,6 +1,6 @@
 import ctaBg from "../../../../assets/call-to-action.png";
 
-export default function CallToAction() {
+export function CallToAction() {
   return (
     <section
       className="relative bg-cover bg-top md:bg-center bg-no-repeat"

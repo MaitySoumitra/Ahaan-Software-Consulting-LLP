@@ -1,6 +1,6 @@
 import Grid from "./components/Grid"
 import ServiceBanner from "./components/ServiceBanner"
-import CallToAction from "../home/components/CallToAction"
+import {CallToAction} from "../home/components/CallToAction"
 
 
 export const ServiceComponent = () => {
