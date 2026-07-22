@@ -14,12 +14,10 @@
   left: -120%;
   width: 55%;
   height: 100%;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255, 255, 255, 0.5),
-    transparent
-  );
+  background: linear-gradient(120deg,
+      transparent,
+      rgba(255, 255, 255, 0.5),
+      transparent);
   transform: skewX(-25deg);
   animation: shine 3s linear infinite;
 }
@@ -57,4 +55,41 @@
 
 .animation-delay-700 {
   animation-delay: .7s;
+}
+
+.webdev-column-track {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  /* Animation: scroll upward */
+  animation: webdev-scroll-up 18s linear infinite;
+  /* ✅ will-change tells GPU to pre-composite this layer */
+  will-change: transform;
+}
+
+/* ✅ Reverse direction for alternating columns */
+.webdev-track-reverse {
+  animation: webdev-scroll-down 18s linear infinite;
+}
+
+/* ✅ Pause on hover — no JS required */
+.webdev-column-track-wrapper:hover .webdev-column-track {
+  animation-play-state: paused;
+}
+@keyframes webdev-scroll-up {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-50%); } /* -50% because items are doubled */
+}
+
+@keyframes webdev-scroll-down {
+  0%   { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
+}
+
+/* ✅ Respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .webdev-column-track,
+  .webdev-track-reverse {
+    animation: none;
+  }
 }

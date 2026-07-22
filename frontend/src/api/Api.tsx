@@ -14,3 +14,23 @@ export const getTeams = async () => {
     return [];
   }
 };
+// ➤ Get all web development projects
+export const getAllDevelopmentsAPI = async () => {
+  try {
+    const response = await API.get("/developments/all");
+    return response;
+  } catch (error) {
+    console.error("❌ Error fetching developments:", error);
+    throw error;
+  }
+};
+// ➤ Get all UI/UX designs
+export const getAllUiUxDesignsAPI = async () => {
+  try {
+    const response = await API.get("/designs");
+    return response.data;
+  } catch (error) {
+    console.error("❌ Error fetching UI/UX designs:", error);
+    return [];
+  }
+};

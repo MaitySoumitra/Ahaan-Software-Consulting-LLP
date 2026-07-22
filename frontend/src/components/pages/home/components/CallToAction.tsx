@@ -17,7 +17,7 @@ export function CallToAction() {
         </h2>
 
         {/* Contact Info */}
-        <div className="mt-5 lg:mt-14 grid grid-cols-2 gap-6 md:flex md:items-center md:justify-center md:gap-10">
+        <div className="mt-5 lg:mt-14 flex items-center justify-center gap-6 md:gap-10">
           {/* USA */}
           <div className="text-center">
             <h3 className="text-[16px] font-bold uppercase text-[#E6B33C] md:text-3xl">
@@ -26,14 +26,14 @@ export function CallToAction() {
 
             <a
               href="tel:+16465759575"
-              className="mt-4 block text-base font-semibold text-white transition hover:text-[#E6B33C] sm:text-[6px] md:text-2xl"
+              className="mt-4 block text-base font-semibold text-white transition hover:text-[#E6B33C] sm:text-[14px] md:text-2xl"
             >
               +1-646-575-9575
             </a>
           </div>
 
           {/* Divider - Desktop Only */}
-          <div className="hidden h-20 w-px bg-white/30 md:block"></div>
+          <div className="h-20 w-px bg-white/30 md:block"></div>
 
           {/* INDIA */}
           <div className="text-center">
@@ -43,7 +43,7 @@ export function CallToAction() {
 
             <a
               href="tel:+919830371143"
-              className="mt-4 block text-base font-semibold text-white transition hover:text-[#E6B33C] sm:text-[6px] md:text-2xl"
+              className="mt-4 block text-base font-semibold text-white transition hover:text-[#E6B33C] sm:text-[14px] md:text-2xl"
             >
               +91-983-037-1143
             </a>
