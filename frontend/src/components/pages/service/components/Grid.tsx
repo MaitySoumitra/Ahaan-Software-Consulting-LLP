@@ -182,9 +182,7 @@ const Grid: React.FC = () => {
           animation: grid-wave-radius 5s ease-in-out infinite;
           border-radius: 20px 120px;
         }
-        .grid-explore-btn:hover {
-          background: var(--main-color) !important;
-        }
+          
         .grid-icon-bubble:hover {
           filter: grayscale(100%);
         }
@@ -264,10 +262,10 @@ const Grid: React.FC = () => {
                                     <div className="flex flex-col flex-wrap items-center justify-between gap-4 sm:flex-row">
                                         <Link
                                             to="/portfolio"
-                                            className="grid-explore-btn flex h-[42px] min-w-[140px] items-center justify-center rounded-[30px] border border-solid px-[25px] py-[7px] font-semibold transition-all duration-300 ease-in-out"
+                                            className="shine-btn grid-explore-btn flex h-[42px] min-w-[140px] items-center justify-center border border-solid px-[25px] py-[7px] font-semibold text-white transition-all duration-300 ease-in-out"
                                             style={{
+                                                backgroundColor: service.color,
                                                 borderColor: service.color,
-                                                color: service.color,
                                             }}
                                         >
                                             Explore More
