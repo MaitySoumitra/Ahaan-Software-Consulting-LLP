@@ -49,6 +49,8 @@ export interface WPMediaResponse {
   mime_type: string;
 }
 
+
+
 // ==========================================
 // 2. Axios Client Initialization
 // ==========================================
@@ -128,6 +130,34 @@ export const getMediaById = async (id: number | string): Promise<WPMediaResponse
     return response.data || null;
   } catch (error) {
     console.error("❌ Error fetching media:", getErrorMessage(error));
+    return null;
+  }
+};
+
+// ==========================================
+// 6. Policies API
+// ==========================================
+
+export const getPolicies = async (): Promise<WPCustomPost[]> => {
+  try {
+    const response = await wpAPI.get<WPCustomPost[]>("/policies?_embed");
+    return response.data || [];
+  } catch (error) {
+    console.error("❌ Error fetching policies:", getErrorMessage(error));
+    return [];
+  }
+};
+
+export const getPolicyBySlug = async (
+  slug: string
+): Promise<WPCustomPost | null> => {
+  try {
+    const response = await wpAPI.get<WPCustomPost[]>(
+      `/policies?slug=${slug}&_embed`
+    );
+    return response.data?.[0] || null;
+  } catch (error) {
+    console.error("❌ Error fetching policy:", getErrorMessage(error));
     return null;
   }
 };

@@ -161,5 +161,3 @@ export const EcommerceSolution: React.FC = () => {
     </>
   );
 };
-
-export default EcommerceSolution;

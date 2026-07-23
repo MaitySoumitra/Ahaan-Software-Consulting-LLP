@@ -19,6 +19,7 @@ import { MediaEntertainment } from "../components/pages/solution/components/Medi
 import { RealEstate } from "../components/pages/solution/components/RealEstate";
 import { SocialNetworking } from "../components/pages/solution/components/SocialNetworking";
 import { TravelHospitality } from "../components/pages/solution/components/TravelHospitality";
+import { PolicyDetails } from "../components/pages/quicklinks/PolicyDetails";
 import { CaseStudyDetails } from "../components/pages/casestudy/components/CaseStudyDetails";
 
 export const AllRoutes = () => {
@@ -44,6 +45,7 @@ export const AllRoutes = () => {
       <Route path="/career" element={<CareerComponent />} />
       <Route path="/case-study" element={<CaseStudyComponent />} />
       <Route path="/contact-us" element={<ContactComponent />} />
+      <Route path="/:slug" element={<PolicyDetails />} />
        <Route path="/case-studies/:slug" element={<CaseStudyDetails />} />
       </Route>
     </Routes>
