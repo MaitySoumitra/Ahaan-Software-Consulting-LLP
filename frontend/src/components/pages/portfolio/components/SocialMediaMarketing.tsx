@@ -184,7 +184,7 @@ const Card = memo(
 );
 
     export default function SocialMediaMarketing() {
-  const [visibleCount] = useState<number>(3);
+  const [visibleCount] = useState<number>(9);
 
 //   const handleLoadMore = () => {
 //     setVisibleCount((prev) => Math.min(prev + 3, cardsData.length));
@@ -197,11 +197,9 @@ return (
   <section className="py-3">
     {/* Heading */}
     <div className="mb-12 text-center">
-
-      <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1c1d20] leading-tight">
-
+    <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1c1d20] leading-tight">
              Social Media Marketing
-        </h2>
+    </h2>
 
         <p className="lg:text-base text-sm px-4 sm:px-8 mt-2">
         A showcase of engaging and creative social media designs

@@ -17,8 +17,7 @@ const DesignCard = memo(({ item }: { item: DesignItem }) => {
       href={item.link}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative block overflow-hidden rounded-xl"
-    >
+      className="group relative block overflow-hidden rounded-xl">
       {!loaded && (
         <div className="absolute inset-0 animate-pulse bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200" />
       )}
@@ -34,8 +33,8 @@ const DesignCard = memo(({ item }: { item: DesignItem }) => {
         } group-hover:scale-105`}
       />
 
-      <div className="absolute inset-x-0 bottom-0 flex items-end justify-center bg-gradient-to-t from-[#dfa53a]/90 to-transparent opacity-0 transition duration-300 group-hover:opacity-100">
-        <span className="mb-4 text-center font-semibold text-black">
+      <div className="absolute inset-x-0 bottom-0 flex items-end justify-center bg-gradient-to-t from-[#dfa53a]/90 via-[#dfa53a]/70 via-[#dfa53a]/20 to-transparent opacity-0 transition duration-300 group-hover:opacity-100">
+        <span className="mb-4 text-center items-center font-semibold text-black">
           {item.title}
         </span>
       </div>
