@@ -9,15 +9,7 @@ const API: AxiosInstance = axios.create({
   withCredentials: true,
   headers: { "Cache-Control": "no-cache", "Pragma": "no-cache" },
 });
-// let isRefreshing = false;
-// let failedQueue: Array<{
-//   resolve: (token: string) => void;
-//   reject: (err: unknown) => void;
-// }> = [];
-// const processQueue = (error: unknown, token: string | null = null) => {
-//   failedQueue.forEach((p) => (error ? p.reject(error) : token && p.resolve(token)));
-//   failedQueue = [];
-// };
+
 API.interceptors.request.use((config: InternalAxiosRequestConfig) => {
   const token = getAccessToken();
   if (token) config.headers.Authorization = `Bearer ${token}`;
