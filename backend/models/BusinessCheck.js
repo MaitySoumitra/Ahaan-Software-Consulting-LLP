@@ -1,22 +1,113 @@
-CREATE TABLE IF NOT EXISTS business_checks (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(255) NOT NULL,
-  business VARCHAR(255) NOT NULL,
-  mobile VARCHAR(50) NOT NULL,
-  email VARCHAR(255) NOT NULL,
-  website_status VARCHAR(255) NOT NULL,
-  improvements TEXT,               -- stored as comma-separated values
-  interest VARCHAR(255) NOT NULL,
-  timeline VARCHAR(255) NOT NULL,
-  discussion VARCHAR(255) NOT NULL,
-  referral VARCHAR(100),
-  referral_details TEXT,
+const { DataTypes } = require("sequelize");
+const sequelize = require("../config/db");
 
-  has_spun TINYINT(1) NOT NULL DEFAULT 0,
-  prize_won VARCHAR(255),
-  spun_at DATETIME,
+const BusinessCheck = sequelize.define(
+  "BusinessCheck",
+  {
+    id: {
+      type: DataTypes.BIGINT.UNSIGNED,
+      autoIncrement: true,
+      primaryKey: true,
+    },
 
-  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    name: {
+      type: DataTypes.STRING(150),
+      allowNull: false,
+    },
 
-  INDEX idx_email (email)
+    business: {
+      type: DataTypes.STRING(255),
+      allowNull: false,
+    },
+
+    mobile: {
+      type: DataTypes.STRING(50),
+      allowNull: false,
+    },
+
+    email: {
+      type: DataTypes.STRING(255),
+      allowNull: false,
+      unique: true,
+      set(value) {
+        this.setDataValue(
+          "email",
+          value ? value.trim().toLowerCase() : value
+        );
+      },
+    },
+
+    websiteStatus: {
+      type: DataTypes.STRING(100),
+      allowNull: false,
+      field: "website_status",
+    },
+
+    improvements: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
+
+    interest: {
+      type: DataTypes.STRING(255),
+      allowNull: false,
+    },
+
+    timeline: {
+      type: DataTypes.STRING(100),
+      allowNull: false,
+    },
+
+    discussion: {
+      type: DataTypes.STRING(100),
+      allowNull: false,
+    },
+
+    referral: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+    },
+
+    referralDetails: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+      field: "referral_details",
+    },
+
+    hasSpun: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
+      field: "has_spun",
+    },
+
+    prizeWon: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+      field: "prize_won",
+    },
+
+    spunAt: {
+      type: DataTypes.DATE,
+      allowNull: true,
+      field: "spun_at",
+    },
+
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      field: "created_at",
+      defaultValue: DataTypes.NOW,
+    },
+  },
+  {
+    tableName: "business_checks",
+
+    // IMPORTANT:
+    // We are manually defining createdAt above.
+    // Sequelize will NOT expect updated_at.
+    timestamps: false,
+  }
 );
+
+module.exports = BusinessCheck;
